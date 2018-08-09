@@ -31,8 +31,6 @@ export class HomeComponent implements OnInit {
 	}
 
 	public DeleteBook(guid: string): void {
-		console.log('delete ' + guid);
-
 		this.http.delete("http://localhost:4100/api/Books/" + guid, httpOptions)
 			.subscribe(
 			res => {
