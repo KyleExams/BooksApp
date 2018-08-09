@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Book] (
-    [GUID]      UNIQUEIDENTIFIER NOT NULL,
+    [GUID]      UNIQUEIDENTIFIER NOT NULL DEFAULT (NEWSEQUENTIALID()),
     [Name]      VARCHAR (50)     NOT NULL,
     [Author]    VARCHAR (50)     NOT NULL,
     [CreatedAt] DATETIME         NOT NULL,

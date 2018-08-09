@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'c:\users\kyleu\source\repos\BooksApp\BooksApp\Models\BooksModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\kyleu\source\repos\BooksApp\BooksApp\Models\BooksModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

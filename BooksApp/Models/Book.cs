@@ -17,7 +17,7 @@ namespace BooksApp.Models
         public System.Guid GUID { get; set; }
         public string Name { get; set; }
         public string Author { get; set; }
-        public Nullable<System.DateTime> CreatedAt { get; set; }
+        public System.DateTime CreatedAt { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 using BooksApp.Models;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -16,9 +17,9 @@ namespace BooksApp.Controllers
         private BooksEntities db = new BooksEntities();
 
         // GET: api/Books
-        public IQueryable<Book> GetBooks()
+        public IHttpActionResult GetBooks()
         {
-            return db.Books;
+            return Ok(db.Books);
         }
 
         // GET: api/Books/5
@@ -48,6 +49,7 @@ namespace BooksApp.Controllers
                 return BadRequest();
             }
 
+            book.UpdatedAt = DateTime.Now;
             db.Entry(book).State = EntityState.Modified;
 
             try
@@ -58,7 +60,7 @@ namespace BooksApp.Controllers
             {
                 if (!BookExists(id))
                 {
-                    return NotFound();
+                    return StatusCode(HttpStatusCode.NotFound);
                 }
                 else
                 {
@@ -66,11 +68,10 @@ namespace BooksApp.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok(0);
         }
 
         // POST: api/Books
-        [ResponseType(typeof(Book))]
         public IHttpActionResult PostBook(Book book)
         {
             if (!ModelState.IsValid)
@@ -78,6 +79,8 @@ namespace BooksApp.Controllers
                 return BadRequest(ModelState);
             }
 
+            book.GUID = Guid.NewGuid();
+            book.CreatedAt = DateTime.Now;
             db.Books.Add(book);
 
             try
@@ -88,7 +91,7 @@ namespace BooksApp.Controllers
             {
                 if (BookExists(book.GUID))
                 {
-                    return Conflict();
+                    return StatusCode(HttpStatusCode.Conflict);
                 }
                 else
                 {
@@ -96,7 +99,7 @@ namespace BooksApp.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = book.GUID }, book);
+            return Ok(book);
         }
 
         // DELETE: api/Books/5

@@ -1,0 +1,16 @@
+<div>
+  <h1 *ngIf="bookForEdit == null">Add Book</h1>
+  <h1 *ngIf="bookForEdit != null">Edit Book</h1>
+  <form #addEditBookForm="ngForm" (ngSubmit)="SaveBook(addEditBookForm)">
+    <div class="form-group">
+      <label for="bookName">Name</label>
+      <input type="text" class="form-control" id="bookName" name="name" placeholder="Enter Name" maxlength="50" required [(ngModel)]="addEditBookForm.name">
+    </div>
+    <div class="form-group">
+      <label for="bookAuthor">Author</label>
+      <input type="text" class="form-control" id="bookAuthor" name="author" placeholder="Enter Author" maxlength="50" required [(ngModel)]="addEditBookForm.author">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!addEditBookForm.valid">SAVE</button>
+    <button type="button" class="btn btn-danger" (click)="cancelAddEdit()">CANCEL</button>
+  </form>
+</div>
