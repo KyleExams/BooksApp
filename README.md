@@ -22,7 +22,7 @@ How to use:
   <li>Run 'npm install' (<i>The version of Angular as of the time of this app's development is 6.1.0, if any issues are encountered delete node_modules folder and try again</i>)</li>  
   <li>Open solution in Visual Studio 2017</li>
 	<li>Right click the BooksDB SQL Database Project and click Publish</li>
-  <li>Follow instructions and make sure SQL Server instance is running (<i>Make sure name of database to be created is BooksDB</i>)</li>
+  <li>Follow instructions and make sure SQL Server instance is running (<i>Make sure name of database to be created is BooksDB, and in Advanced Publish Settings, check Always re-create database option</i>)</li>
   <li>Once done, there should be a new database BooksDB with a Books table in it in the SQL Server instance</li>
   <li>Build solution</li>  
 	<li>Back to command prompt, still in BooksApp directory, run 'ng serve' and just leave this window running</li>
