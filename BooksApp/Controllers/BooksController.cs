@@ -19,7 +19,7 @@ namespace BooksApp.Controllers
         // GET: api/Books
         public IHttpActionResult GetBooks()
         {
-            return Ok(db.Books);
+            return Ok(db.Books.OrderByDescending(o => o.CreatedAt));
         }
 
         // GET: api/Books/5
@@ -103,7 +103,6 @@ namespace BooksApp.Controllers
         }
 
         // DELETE: api/Books/5
-        [ResponseType(typeof(Book))]
         public IHttpActionResult DeleteBook(Guid id)
         {
             Book book = db.Books.Find(id);
@@ -115,7 +114,7 @@ namespace BooksApp.Controllers
             db.Books.Remove(book);
             db.SaveChanges();
 
-            return Ok(book);
+            return Ok(0);
         }
 
         protected override void Dispose(bool disposing)

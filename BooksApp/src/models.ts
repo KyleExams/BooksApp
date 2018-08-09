@@ -1,7 +1,7 @@
 export interface Book {
-    guid: string;
-    name: string;
-    author: string;
-    createdAt: Date;
-    updatedAt: Date;
+	GUID: string;
+	Name: string;
+	Author: string;
+	CreatedAt: Date;
+	UpdatedAt: Date;
 }

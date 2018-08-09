@@ -14,32 +14,32 @@ import { HomeComponent } from './home/home.component';
 import { AddEditComponent } from './add-edit/add-edit.component';
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
-    { path: 'add-edit', component: AddEditComponent },
-    { path: 'add-edit/:id', component: AddEditComponent },
+	{ path: '', redirectTo: 'home', pathMatch: 'full' },
+	{ path: 'home', component: HomeComponent },
+	{ path: 'add-edit', component: AddEditComponent },
+	{ path: 'add-edit/:guid', component: AddEditComponent },
 ];
 
 @NgModule({
-  declarations: [
-      AppComponent,
-      HomeComponent,
-      AddEditComponent
-  ],
-  imports: [
-      BrowserModule,
-      FormsModule,
-      HttpModule,
-      HttpClientModule,
-      BrowserAnimationsModule,
-      NgxPaginationModule,
-      ToastrModule.forRoot(),
-      RouterModule.forRoot(
-          appRoutes,
-          //{ enableTracing: true } // <-- debugging purposes only
-      )
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		HomeComponent,
+		AddEditComponent
+	],
+	imports: [
+		BrowserModule,
+		FormsModule,
+		HttpModule,
+		HttpClientModule,
+		BrowserAnimationsModule,
+		NgxPaginationModule,
+		ToastrModule.forRoot(),
+		RouterModule.forRoot(
+			appRoutes,
+			//{ enableTracing: true } // <-- debugging purposes only
+		)
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

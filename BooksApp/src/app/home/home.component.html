@@ -1,33 +1,37 @@
 <div class="container">
-  <div class="row">
-    <h1>Books</h1>
-  </div>
-  <div class="row" *ngIf="books?.length <= 0">
-    <h3>No books available yet</h3>
-  </div>
-  <div class="row" *ngIf="books?.length > 0">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">GUID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Author</th>
-          <th scope="col">Created At</th>
-          <th scope="col">Updated At</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let book of books">
-          <th scope="row">{{book.guid}}</th>
-          <td>{{book.name}}</td>
-          <td>{{book.author}}</td>
-          <td>{{book.createdAt}}</td>
-          <td>{{book.updatedAt}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div>
-    <a class="btn btn-primary btn-xl js-scroll-trigger" (click)="AddBook()">Add Book</a>
-  </div>
+	<div class="row">
+		<h1 class="header">Books App</h1>
+		<a class="btn btn-primary btn-xl js-scroll-trigger add-button" (click)="AddBook()">Add Book</a>
+	</div>
+	<div class="row" *ngIf="books?.length <= 0">
+		<h3>No books available.</h3>
+	</div>
+	<div class="row" *ngIf="books?.length > 0">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">GUID</th>
+					<th scope="col">Name</th>
+					<th scope="col">Author</th>
+					<th scope="col">Created At</th>
+					<th scope="col">Updated At</th>
+					<th scope="col">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let book of books | paginate: { itemsPerPage: 10, currentPage: p }">
+					<th scope="row">{{book.GUID}}</th>
+					<td>{{book.Name}}</td>
+					<td>{{book.Author}}</td>
+					<td>{{book.CreatedAt | date:'medium'}}</td>
+					<td>{{book.UpdatedAt | date:'medium'}}</td>
+					<td>
+						<button type="button" class="btn btn-primary action-button" (click)="EditBook(book.GUID)">EDIT</button>
+						<button type="button" class="btn btn-danger action-button" (click)="DeleteBook(book.GUID)">DELETE</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<pagination-controls (pageChange)="p = $event" autoHide="true"></pagination-controls>
+	</div>
 </div>

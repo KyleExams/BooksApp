@@ -2122,7 +2122,9 @@
       <DependentUpon>BooksModel.edmx</DependentUpon>
       <LastGenOutput>BooksModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -2158,7 +2160,6 @@
     <Content Include="Models\BooksModel.edmx.diagram">
       <DependentUpon>BooksModel.edmx</DependentUpon>
     </Content>
-    <Content Include=".editorconfig" />
     <Content Include="angular.json" />
     <Content Include="e2e\tsconfig.e2e.json" />
     <Content Include="package.json" />
@@ -6100,7 +6101,6 @@
     <TypeScriptCompile Include="src\main.ts" />
     <TypeScriptCompile Include="src\models.ts" />
     <TypeScriptCompile Include="src\polyfills.ts" />
-    <TypeScriptCompile Include="src\test.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -6119,6 +6119,8 @@
           <DevelopmentServerPort>1877</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:4100/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:4100/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
